@@ -3,54 +3,67 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="MeuHotel.Wiews.HospedagemContratada"
              NavigationPage.HasNavigationBar="False"
-             Background="{StaticResource Gray100}">
+             BackgroundColor="#141A29">
   
     <VerticalStackLayout VerticalOptions="CenterAndExpand">
-        <Label Text="Suíte Super Luxo"
-               TextColor="{StaticResource Primary}"
+        <Label Text="{Binding QuartoSelecionado.Descricao}"
+               TextColor="White"
                FontFamily="ElmsSansRegular"
                FontSize="40"
-               HorizontalOptions="Center"/>
-        
-        <Frame Margin="10">
+               HorizontalOptions="Center"
+               Margin="0, 0, 0, 5"/>
+
+        <BoxView 
+            HeightRequest="2" 
+            WidthRequest="200" 
+            Color= "#E6C068"
+            HorizontalOptions="Center" 
+            Margin="0, 0, 0, 25"/>
+
+        <Frame Margin="10" BackgroundColor="#1D3557" BorderColor="#2E4F73">
             <HorizontalStackLayout>
                 <HorizontalStackLayout>
-                    <Label Text="Adultos: "/>
-                    <Label Text="2" 
-                           TextColor="{StaticResource Primary}" />
+                    <Label Text="Adultos: " 
+                           TextColor="White"/>
+                    <Label TextColor="#E6C068" 
+                           Text="{Binding QtdeAdultos}" />
+                    
                 </HorizontalStackLayout>
                 
                 <HorizontalStackLayout>
-                    <Label Text="Crianças: "/>
-                            <Label TextColor="{StaticResource Primary}"
-                           Text="1" />
+                    <Label Text=" Crianças: " 
+                           TextColor="White"/>
+                    <Label TextColor="#E6C068"
+                           Text="{Binding QtdeCriancas}" />
                 </HorizontalStackLayout>
             </HorizontalStackLayout>
         </Frame>
 
-        <Frame Margin="10">
+        <Frame Margin="10" BackgroundColor="#1D3557" BorderColor="#2E4F73">
             <Grid ColumnDefinitions="*, *, *"
                   RowDefinitions="Auto, Auto">
-                <Label Grid.Row="0" Grid.Column="0" Text="Check-in: "/>
-                <Label Grid.Row="0" Grid.Column="1" Text="Check-out: "/>
-                <Label Grid.Row="0" Grid.Column="2" Text="Estadia: "/>
+                <Label Grid.Row="0" Grid.Column="0" Text="Check-in: " TextColor="White"/>
+                <Label Grid.Row="0" Grid.Column="1" Text="Check-out: " TextColor="White"/>
+                <Label Grid.Row="0" Grid.Column="2" Text="Estadia: " TextColor="White"/>
 
-                <Label Grid.Row="1" Grid.Column="0" Text="28/05/2026"/>
-                <Label Grid.Row="1" Grid.Column="1" Text="29/05/2026"/>
-                <Label Grid.Row="1" Grid.Column="2" Text="3"/>
+                <Label Grid.Row="1" Grid.Column="0" Text="{Binding DataCheckIn, StringFormat='{}{0:dd/MM/yyyy}'}" TextColor="#E6C068"/>
+                <Label Grid.Row="1" Grid.Column="1" Text="{Binding DataCheckOut, StringFormat='{}{0:dd/MM/yyyy}'}" TextColor="#E6C068"/>
+                <Label Grid.Row="1" Grid.Column="2" Text="{Binding Estadia}" TextColor="#E6C068"/>
             </Grid>
         </Frame>
 
-        <Frame Margin="10">
+        <Frame Margin="10" BackgroundColor="#1D3557" BorderColor="#2E4F73">
             <HorizontalStackLayout>
-                <Label Text="Valor Tota: "/>
-                <Label Text="R$ 900,00"/>
+                <Label Text="Valor Total: " TextColor="White"/>
+                <Label Text="{Binding ValorTotal, StringFormat='{}{0:c}'}" TextColor="#E6C068"/>
             </HorizontalStackLayout>
         </Frame>
 
         <Button Text="Voltar"
                 HorizontalOptions="Center"
-                Clicked="Button_Clicked"/>
+                Clicked="Button_Clicked"
+                BackgroundColor="#E6C068"
+                TextColor="Black"/>
         
     </VerticalStackLayout>
 </ContentPage>

@@ -25,69 +25,90 @@
         <Frame Padding="10" 
                BorderColor="#2E4F73" 
                BackgroundColor="#1D3557">
-            <VerticalStackLayout>
+            
+            <VerticalStackLayout Spacing="10">
                 <Grid RowDefinitions="Auto, Auto"
                          ColumnDefinitions="*, *, 2*">
 
                     <Label Grid.Row="0" Grid.Column="0"
                            Text="Adultos"
-                           TextColor="White"/>
+                           TextColor="White"
+                           FontFamily="ElmsSansRegular"/>
 
                     <Label Grid.Row="0" Grid.Column="1"
                            Text="{Binding Value}"
                            BindingContext="{x:Reference stp_adultos}"
-                           TextColor="White" />
+                           TextColor="White" 
+                           FontFamily="ElmsSansRegular"/>
 
 
                     <Stepper Grid.Row="0" Grid.Column="2"
                              x:Name="stp_adultos"
                              Minimum="0"
                              Maximum="10"
-                             Increment="1" />
+                             Increment="1"
+                             BackgroundColor="#E6C068"/>
 
                     <Label Grid.Row="1" Grid.Column="0"
                            Text="Crianças"
-                           TextColor="White"/>
+                           TextColor="White"
+                           FontFamily="ElmsSansRegular"/>
                     
                     <Label Grid.Row="1" Grid.Column="1"
                             Text="{Binding Value}"
                             BindingContext="{x:Reference stp_criancas}"
-                           TextColor="White"/>
+                            TextColor="White"
+                            FontFamily="ElmsSansRegular"/>
 
                     <Stepper Grid.Row="1" Grid.Column="2"
                             x:Name="stp_criancas"
                             Minimum="0"
                             Maximum="10"
-                            Increment="1" />
+                            Increment="1" 
+                            BackgroundColor="#E6C068"/>
 
                 </Grid>
 
-                <Label Text="Escolha sua Suíte" TextColor="White"/>
+                <Label Text="Escolha sua Suíte" 
+                       TextColor="#E6C068" 
+                       FontFamily="ElmsSansRegular"
+                       TextTransform="Uppercase"
+                       FontSize="Medium"/>
 
                 <Picker x:Name="pck_quarto"
-                        Title="Selecione sua Acomodação"
+                        Title="Selecione sua Acomodação:"
+                        HorizontalTextAlignment="Center"
                         TitleColor="White"
-                        ItemDisplayBinding="{Binding Descricao}"/>
+                        ItemDisplayBinding="{Binding Descricao}"
+                        TextColor="White"
+                        FontFamily="ElmsSansRegular"/>
 
                 <Frame Padding="10"
                        Margin="10"
                        BackgroundColor="#1D3557">
-                    <VerticalStackLayout>
-                        <Label Text="Período da Estadia" TextColor="White"/>
+                   
+                    <VerticalStackLayout Spacing="5">
+                        <Label Text="Período da Estadia" 
+                               TextColor="#E6C068"
+                               TextTransform="Uppercase"
+                               FontSize="Medium"
+                               FontFamily="ElmsSansRegular"/>
                         
-                        <HorizontalStackLayout>
-                            <Label Text="Check-in" TextColor="White"/>
+                        <HorizontalStackLayout HorizontalOptions="CenterAndExpand">
+                            <Label Text="Check-in:" TextColor="White" FontFamily="ElmsSansRegular"/>
                             <DatePicker x:Name="dtpck_checkin"
                                         DateSelected="dtpck_checkin_DateSelected"
                                         Format="dd/MM/yyyy"
-                                        TextColor="White"/>
+                                        TextColor="White"
+                                        FontFamily="ElmsSansRegular"/>
                         </HorizontalStackLayout>
 
-                        <HorizontalStackLayout>
-                            <Label Text="Check-out" TextColor="White"/>
+                        <HorizontalStackLayout HorizontalOptions="CenterAndExpand">
+                            <Label Text="Check-out:" TextColor="White" FontFamily="ElmsSansRegular"/>
                             <DatePicker x:Name="dtpck_checkout"
                                         Format="dd/MM/yyyy" 
-                                        TextColor="White"/>
+                                        TextColor="White"
+                                        FontFamily="ElmsSansRegular"/>
                         </HorizontalStackLayout>
                     </VerticalStackLayout>
                 </Frame>
